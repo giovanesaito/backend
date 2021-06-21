@@ -65,7 +65,7 @@ app.get('/spotify/:id',
 )
 // usando o verbo post
 app.post('/spotify', 
-    (req, res) => {
+    function(req, res){
         console.log(req.body.spotifys); // codigo para receber a mensagem 
         const spotifys = req.body.spotifys;
         spotify.push(spotifys); // vai colocar a nova mensgem no banco de dados, quando atualizar o localhost vai aparecer
