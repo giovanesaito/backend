@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giovanesaito/backend.git"
+    "url": "git+https://github.com/giovanesaito/tt905-2021-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/giovanesaito/backend/issues"
+    "url": "https://github.com/giovanesaito/tt905-2021-backend/issues"
   },
-  "homepage": "https://github.com/giovanesaito/backend#readme",
+  "homepage": "https://github.com/giovanesaito/tt905-2021-backend#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
