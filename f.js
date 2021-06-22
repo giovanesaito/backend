@@ -1,4 +1,4 @@
-let url = 'https://tt905-2021-backend.herokuapp.com/spotify'
+let url = 'https://tt905-2021-backend.herokuapp.com/database'
 
 async function callFetchWithGet(){
     let headers = new Headers();
