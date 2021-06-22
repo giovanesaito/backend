@@ -18,7 +18,7 @@ async function callFetchWithGet(){
     }
 }
 
-async function callFetchWithPost( Artista,type,about){
+async function callFetchWithPost(Artista,type,about){
     const options = {
         method : 'POST',
         mode: 'cors',
@@ -35,7 +35,7 @@ async function callFetchWithPost( Artista,type,about){
     await fetch(url, options);
 }
 
-async function callFetchWithPut(id, Artista2,type2,about2){
+async function callFetchWithPut(id,Artista2,type2,about2){
     const options = {
         method : 'PUT',
         mode: 'cors',
@@ -49,7 +49,7 @@ async function callFetchWithPut(id, Artista2,type2,about2){
             'about' : about2
         })
     }
-    await fetch(`${url}/${id}`, options);
+    await fetch(`${url}${id}`, options);
 }
 
 async function callFetchWithDelete(id){
@@ -71,18 +71,19 @@ async function callFetchWithDelete(id){
 function submitPost(){
     console.log("entrei na função");
     const form = document.forms['postForm'];    
-    const Artista = form[" Artista"].value;
+    const Artista = form["Artista"].value;
     const type = form["type"].value;
     const about = form["about"].value;
    
-    allFetchWithPost(Artista,type,about);
+    callFetchWithPost(Artista,type,about);
     return false; // Evitar o reload da tela.
 }
 
 function submitPut(){
+    console.log("entrei na função2");
     const form = document.forms['putForm'];  
     const id = form["id"].value;  
-    const Artista2 = form[" Artista2"].value;
+    const Artista2 = form["Artista2"].value;
     const type2 = form["type2"].value;
     const about2 = form["about2"].value;
     
