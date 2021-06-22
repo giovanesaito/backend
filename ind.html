@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Aula 11
+        </title>
+        <meta charset="UTF-8"/>
+        <script src='js/f.js'></script>
+    </head>
+    <body>
+       <!-- <h2>Padrão Rest</h2>-->
+       <!-- <a href="javascript:callFetchWithGet()">Get</a> -->
+       <!-- <a href="javascript:callFetchWithPost('Pikachu')"> Post</a> -->
+       <!-- <a href="javascript:callFetchWithPut(1,'Raichu')">Put</a> -->
+       <!-- <a href="javascript:callFetchWithDelete(11)">Delete</a> -->
+       <!-- <p id='json'></p> -->
+
+        <h2>Spotify Premium (Post)</h2>
+        <form id="postForm">
+             <label for="entrarArtista">Artista:</label>
+             <input type="text" name="Art" id="entrarArtista"/>
+
+             <label for="entrartype">Genero:</label>
+             <input type="text" name="typ" id="entrartype"/>
+
+             <label for="entrarabout">Sobre:</label>
+             <input type="text" name="abou" id="entrarabout"/>
+
+             <button type="submit" onclick="return submitPost()">Submit</button>
+        </form>
+
+
+
+        <h2>Spotify Premium(Put)</h2>
+        <form id="putForm">
+            <label>Id:
+            <input type="text" name="id"/>
+            </label>
+
+
+            <label>Artista:
+            <input type="text" name="novoArtista"/>
+            </label>
+
+            <label>Genero:
+            <input type="text" name="novotype"/>
+            </label>
+
+            <label >sobre:</label>
+            <input type="text" name="novoabout" />
+            </label>
+
+            <button type="submit" onclick="return submitPut()">Submit</button>
+       </form>
+
+       <h2>Spotify Premium (Delete)</h2>
+       <form id="deleteForm">
+        <label>Id:
+        <input type="text" name="id"/>
+        </label>
+        <button type="submit" onclick="return submitDelete()">Submit</button>
+   </form>
+
+
+    </body>
+</html>
+
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
