@@ -15,18 +15,28 @@
        <!-- <a href="javascript:callFetchWithDelete(11)">Delete</a> -->
        <!-- <p id='json'></p> -->
 
+       <h2>Spotify Premium (Get)</h2>
+       <a href="javascript:callFetchWithGet()">Get</a>
+       <p id='json'></p>
+
         <h2>Spotify Premium (Post)</h2>
         <form id="postForm">
              <label for="entrarArtista">Artista:</label>
              <input type="text" name="Art" id="entrarArtista"/>
+            
+            
 
              <label for="entrartype">Genero:</label>
              <input type="text" name="typ" id="entrartype"/>
 
+
+
              <label for="entrarabout">Sobre:</label>
              <input type="text" name="abou" id="entrarabout"/>
 
-             <button type="submit" onclick="return submitPost()">Submit</button>
+
+
+             <button type="submit" onclick="submitPut()">Submit</button>
         </form>
 
 

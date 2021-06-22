@@ -74,8 +74,8 @@ function submitPost(){
     const Art = form[" Artista"].value;
     const typ = form["type"].value;
     const abou = form["about"].value;
-    
-    callFetchWithPost(form,Art,typ,abou);
+   
+    callFetchWithPost(Art,typ,abou);
     return false; // Evitar o reload da tela.
 }
 
