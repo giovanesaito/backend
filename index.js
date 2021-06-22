@@ -91,3 +91,108 @@ app.delete('/spotify/:id',
         res.send("Artista removido com sucesso");
     }
 );
+
+
+const mongodb = require('mongodb')
+const password = "gks437381";
+console.log(password);
+
+const connectionString = `mongodb+srv://admin:${password}@cluster0.sssdc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const options = { useNewUrlParser: true, 
+                  useUnifiedTopology: true 
+                };
+
+(async function(){
+        const client = await mongodb.MongoClient.connect(connectionString, options);
+        const db = client.db('myFirstDatabase');
+        const Spotify = db.collection('Spotify');
+        console.log(await Spotify.find({}).toArray());
+
+
+app.get('/database',
+async function(req, res){
+    res.send(await Spotify.find({}).toArray());
+}
+);
+
+app.get('/database/:id',
+async function(req, res){
+    const id = req.params.id;
+    const Artista = await Spotify.findOne(
+        {_id : mongodb.ObjectID(id)}
+    );
+
+    console.log(Artista);
+    if (!Artista){
+        res.send("Artista não encontrado");
+    } else {
+        res.send(Artista);
+    }
+}
+);
+
+app.post('/database', 
+async (req, res) => {
+    console.log(req.body);
+    const Artista = req.body;
+    
+    delete Artista["_id"];
+
+    Spotify.insertOne(Artista);        
+    res.send("criar um Artista.");
+}
+);
+
+app.put('/database/:id',
+async (req, res) => {
+    const id = req.params.id;
+    const Artista = req.body;
+
+    console.log(Artista);
+
+    delete Artista["_id"];
+
+    const num_spotify = await Spotify.countDocuments({_id : mongodb.ObjectID(id)});
+
+    if (num_spotify !== 1) {
+        res.send('Ocorreu um erro por conta do número de mensagens');
+        return;
+    }
+
+    await Spotify.updateOne(
+        {_id : mongodb.ObjectID(id)},
+        {$set : Artista}
+    );
+    
+    res.send("Artista atualizada com sucesso.")
+}
+)
+
+app.delete('/database/:id', 
+async (req, res) => {
+    const id = req.params.id;
+    
+    await Spotify.deleteOne({_id : mongodb.ObjectID(id)});
+
+    res.send("Artista removido com sucesso");
+}
+);
+
+})();
+
+/*
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://admin:<gks437381>@cluster0.sssdc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+(async()=>{
+client.connect(err => {
+  const db = client.db("MyFirstDatabase");
+  const collection = db.collection("Spotify");
+  // perform actions on the collection object console.log(collection.find({}).toArray());
+  
+  console.log(collection.find({}).toArray());
+});
+})()
+*/
