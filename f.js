@@ -1,4 +1,4 @@
-let url = 'https://tt905-2021-backend.herokuapp.com/database'
+let url = 'https://tt905-2021-backend.herokuapp.com/database/'
 
 async function callFetchWithGet(){
     let headers = new Headers();
@@ -35,7 +35,7 @@ async function callFetchWithPost( Artista,type,about){
     await fetch(url, options);
 }
 
-async function callFetchWithPut(id, novoArtista,type,about){
+async function callFetchWithPut(id, Artista2,type2,about2){
     const options = {
         method : 'PUT',
         mode: 'cors',
@@ -44,9 +44,9 @@ async function callFetchWithPut(id, novoArtista,type,about){
             'content-type' : 'application/json'
         },
         body : JSON.stringify({
-            'name' : novoArtista,
-            'type' : type,
-            'about' : about
+            'name' : Artista2,
+            'type' : type2,
+            'about' : about2
         })
     }
     await fetch(`${url}/${id}`, options);
@@ -75,18 +75,18 @@ function submitPost(){
     const type = form["type"].value;
     const about = form["about"].value;
    
-    callFetchWithPost(Artista,type,about);
+    allFetchWithPost(Artista,type,about);
     return false; // Evitar o reload da tela.
 }
 
 function submitPut(){
     const form = document.forms['putForm'];  
     const id = form["id"].value;  
-    const novoArtist = form[" Artista"].value;
-    const novotype = form["type"].value;
-    const novoabout = form["about"].value;
+    const Artista2 = form[" Artista2"].value;
+    const type2 = form["type2"].value;
+    const about2 = form["about2"].value;
     
-    callFetchWithPut(id, novoArtist,novotype,novoabout);
+    callFetchWithPut(id, Artista2, type2,about2);
     return false; // Evitar o reload da tela.
 }
 
